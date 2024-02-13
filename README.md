@@ -17,6 +17,8 @@ https://smith.langchain.com/public/d2fe1bc0-d0d7-4d67-a8e4-454a9773cc66/r
 * Team **Inre**: https://smith.langchain.com/public/84bdc73a-2572-4337-8c7e-cf00258ec895/r
 
 
+* Team **Kontoret**: https://smith.langchain.com/public/5b8e9f98-319d-46ab-915c-f9760749a7d6/r
+
 ## Sample code
 
 ### Simple OpenAI sample
