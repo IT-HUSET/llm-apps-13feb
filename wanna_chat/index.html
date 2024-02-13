@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Form</title>
+    <style>
+        /* Centering the content and applying basic styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        img {
+            max-width: 400px;
+            height: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+            min-width: 360px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: steelblue;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: hotpink;
+        }
+
+        #answerSection {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Image at the top -->
+    <img src="https://ai0213.blob.core.windows.net/$web/wannachat.png" alt="Top Image">
+
+    <!-- Form with a single input field for the question -->
+    <form id="questionForm">
+        <label for="question">Enter your question:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div style="width: 400px">
+        <h3 style="margin-bottom: 0;">Hint</h3>
+        <p style="margin-top: 4px;"">
+            Try asking "What are the prerequisites for this course?"<br/>
+            And as a follow up question, ask "Can you list them in bullet point format?"
+        </p>
+    </div>
+
+    <div style="width: 400px">
+        <h3 style="margin-bottom: 0;">Improvements</h3>
+        <ui style="margin-top: 4px;"">
+            <li>Try with a different session ID (via input field or query param)</li>
+        </ui>
+    </div>
+
+    <!-- Placeholder for the answer -->
+    <div id="answerSection"></div>
+
+    <script>
+        const port = 8087;
+
+        const decoder = new TextDecoder();
+
+        // readChunks() reads from the provided reader and yields the results into an async iterable
+        function readChunks(reader) {
+            return {
+                async*[Symbol.asyncIterator]() {
+                    let readResult = await reader.read();
+                    while (!readResult.done) {
+                        yield decoder.decode(readResult.value);
+                        readResult = await reader.read();
+                    }
+                },
+            };
+        }
+
+
+        // JavaScript to handle form submission
+        document.getElementById('questionForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting in the traditional way
+
+            // Extract the question from the input field
+            const questionValue = document.getElementById('question').value;
+
+            submitQuestion(questionValue);
+        });
+
+
+        function submitQuestion(question) {
+            // Extract the 'answer' field from the response and update the page
+            const answerSection = document.getElementById('answerSection');
+
+            // Execute the fetch call to the REST web service
+            fetch('http://localhost:8087/question', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    question: question,
+                    session_id: "1", /// TODO: Try getting this from form or query string, to test multiple sessions
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Assuming the response JSON contains an "answer" field
+                    const answer = data.answer;
+                    answerSection.innerHTML = `<p><strong>Answer:</strong> ${data.answer}</p>`; // Update the page with the answer
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    answerSection.innerHTML = `<p>Error fetching answer. Please try again.</p>`;
+                });
+
+        }
+
+        // TODO: Implement the streamed response (complete this function)
+        async function submitQuestionStreamed(question) {
+            // Execute the fetch call to the REST web service
+            const response = await fetch(`http://localhost:${port}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    question: question,
+                    session_id: "1", // TODO: Try getting this from form or query string, to test multiple sessions
+                }),
+            });
+
+            // response.body is a ReadableStream
+            const reader = response.body?.getReader();
+
+            // TODO: Update the page with the streamed answer
+            for await (const chunk of readChunks(reader)) {
+                console.log("CHUNK:", chunk);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
