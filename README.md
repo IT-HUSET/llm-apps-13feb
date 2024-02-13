@@ -10,14 +10,18 @@ Here are some resources to get you started.
 
 ## Sample code
 
-### Simple OpenAI sampla
-A simple sample using the OpenAI API.
+### Simple OpenAI sample
+A simple sample using the OpenAI API (see simple_openapi directory).
 
 ### Wanna Chat
-A simple chat bot, built using LangChain.
+A simple chat bot, built using LangChain (see wanna_chat directory).
 
 #### This sample uses Deno
 [Here are instructions on how to install](https://docs.deno.com/runtime/manual/getting_started/installation)
+
+
+## Sample data
+[/test_data/Data.csv](test_data/Data.csv)
 
 
 
