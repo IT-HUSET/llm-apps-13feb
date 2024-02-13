@@ -7,6 +7,12 @@
 Here are some resources to get you started. 
 
 
+## LangSmith traces
+
+* Team Stora:
+https://smith.langchain.com/public/d2fe1bc0-d0d7-4d67-a8e4-454a9773cc66/r
+
+
 
 ## Sample code
 
