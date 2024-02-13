@@ -46,13 +46,19 @@ A simple chat bot, built using LangChain.
 #### **JS/TS**
 
 * [Introduction](https://js.langchain.com/docs/get_started/introduction)
+
 * [Use cases](https://js.langchain.com/docs/use_cases)
+
+* [Cookbook](https://github.com/langchain-ai/langchainjs/tree/main/cookbook)
 
 
 #### **Python**
 
 * [Introduction](https://python.langchain.com/docs/get_started/introduction)
+
 * [Use cases](https://python.langchain.com/docs/use_cases)
+
+* [Cookbook](https://github.com/langchain-ai/langchain/tree/master/cookbook)
 
 
 ### DeepLearning.AI
