@@ -9,10 +9,12 @@ Here are some resources to get you started.
 
 ## LangSmith traces
 
-* Team Stora:
+* Team **Stora**:
 https://smith.langchain.com/public/d2fe1bc0-d0d7-4d67-a8e4-454a9773cc66/r
 
-* Neural Nexus Innovators: https://smith.langchain.com/public/00fb4dbc-a89e-4f48-aceb-76456150b72d/r
+* Team **Neural Nexus Innovators**: https://smith.langchain.com/public/00fb4dbc-a89e-4f48-aceb-76456150b72d/r
+
+* Team **Inre**: https://smith.langchain.com/public/84bdc73a-2572-4337-8c7e-cf00258ec895/r
 
 
 ## Sample code
