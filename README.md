@@ -7,18 +7,6 @@
 Here are some resources to get you started. 
 
 
-## LangSmith traces
-
-* Team **Stora**:
-https://smith.langchain.com/public/d2fe1bc0-d0d7-4d67-a8e4-454a9773cc66/r
-
-* Team **Neural Nexus Innovators**: https://smith.langchain.com/public/00fb4dbc-a89e-4f48-aceb-76456150b72d/r
-
-* Team **Inre**: https://smith.langchain.com/public/84bdc73a-2572-4337-8c7e-cf00258ec895/r
-
-
-* Team **Kontoret**: https://smith.langchain.com/public/5b8e9f98-319d-46ab-915c-f9760749a7d6/r
-
 ## Sample code
 
 ### Simple OpenAI sample
@@ -32,8 +20,8 @@ A simple chat bot, built using LangChain (see wanna_chat directory).
 
 
 ## Sample data
-[/test_data/Data.csv](test_data/Data.csv)
-
+* [/test_data/Data.csv](test_data/Data.csv)  
+* [/test_data/OutdoorClothingCatalog_1000.csv](test_data/OutdoorClothingCatalog_1000.csv)
 
 
 ## References, docs and courses
@@ -96,6 +84,18 @@ A simple chat bot, built using LangChain (see wanna_chat directory).
 * **[Build LLM Apps with LangChain.js](https://www.deeplearning.ai/short-courses/build-llm-apps-with-langchain-js/)**
 
 
+
+## LangSmith traces
+
+* Team **Stora**:
+https://smith.langchain.com/public/d2fe1bc0-d0d7-4d67-a8e4-454a9773cc66/r
+
+* Team **Neural Nexus Innovators**: https://smith.langchain.com/public/00fb4dbc-a89e-4f48-aceb-76456150b72d/r
+
+* Team **Inre**: https://smith.langchain.com/public/84bdc73a-2572-4337-8c7e-cf00258ec895/r
+
+
+* Team **Kontoret**: https://smith.langchain.com/public/5b8e9f98-319d-46ab-915c-f9760749a7d6/r
 
 
 ### More on prompting techniques (Prompt Engineering Guide)
