@@ -34,7 +34,7 @@ import { Client } from "npm:langsmith";
 import { LangChainTracer } from "npm:langchain/callbacks";
 
 
-const openAIApiKey = "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"; 
+const openAIApiKey = Deno.env.get("OPENAI_API_KEY"); 
 
 
 
