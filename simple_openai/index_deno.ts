@@ -15,16 +15,16 @@ const anthropic = new Anthropic({
 async function chat(input: string) {
   /// Use eithcer OpenAI
   const response: OpenAI.Chat.ChatCompletion = await openai.chat.completions.create({
-    messages: [{ role: 'user', content: input}],
-    //model: 'gpt-3.5-turbo',
-    model: 'gpt-4-0125-preview',
-    temperature: 1.0,
+  messages: [{ role: 'user', content: input}],
+  //model: 'gpt-3.5-turbo',
+  model: 'gpt-4-0125-preview',
+  temperature: 1.0,
   });
 
   /// ... or Claude (Ahthropic)
   // const response:any = await anthropic.beta.messages.create({
-  //   //model: "claude-3-opus-20240229",
-  //   model: "claude-3-sonnet-20240229", 
+    //   //model: "claude-3-opus-20240229",
+    //   model: "claude-3-sonnet-20240229", 
   // max_tokens: 1000,
   // temperature: 1.0,
   // system: "A helpful assistant.",
